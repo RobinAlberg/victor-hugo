@@ -1,9 +1,22 @@
-{{ partial "header" . }}
+﻿{{ partial "header" . }}
 
-<h1>Hugo with Gulp, PostCSS and Webpack</h1>
+{{ define "main" }}
+    {{ if not .Site.Params.about.hide }}
+        {{ partial "about" . }}
+    {{ end }}
 
-<p>
-  Hooray 🎉 - you've built this with <a href="https://github.com/netlify/victor-hugo">Victor-Hugo</a>!
-</p>
+    {{ if not .Site.Params.portfolio.hide }}
+        {{ partial "portfolio" . }}
+    {{ end }}
+
+    {{ if not .Site.Params.recentposts.hide }}
+        {{ partial "recent-posts" . }}
+    {{ end }}
+
+    {{ if not .Site.Params.contact.hide }}
+        {{ partial "contact" . }}
+    {{ end }}
+{{ end }}
 
 {{ partial "footer" . }}
+
